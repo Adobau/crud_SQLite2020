@@ -72,6 +72,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/estiloeditext"
                 android:textColorHint="#000"
+                android:textColor="#0E0E0E"
                 android:paddingLeft="25dp"
                 android:drawableStart="@drawable/ic_editar"
                 android:drawablePadding="5dp"/>
@@ -88,6 +89,7 @@
                 android:inputType="numberDecimal"
                 android:background="@drawable/estiloeditext"
                 android:textColorHint="#000"
+                android:textColor="#0E0E0E"
                 android:paddingLeft="25dp"
                 android:drawableStart="@drawable/ic_precio"
                 android:drawablePadding="5dp"

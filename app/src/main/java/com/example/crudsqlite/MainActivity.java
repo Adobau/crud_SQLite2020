@@ -165,185 +165,165 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest. xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiablelfStatement
         if (id == R.id.action_limpiar) {
             et_codigo.setText(null);
             et_descripcion.setText(null);
             et_precio.setText(null);
             return true;
-        } else if (id == R.id.action_listaArticulos) {
+        }else if(id == R.id.action_listaArticulos){
             Intent spinnerActivity = new Intent(MainActivity.this, consulta_spinner.class);
             startActivity(spinnerActivity);
             return true;
-        } else if (id == R.id.action_listaArticulos1) {
+        }else if(id == R.id.action_listaArticulos1){
             Intent listViewActivity = new Intent(MainActivity.this, list_view_articulos.class);
             startActivity(listViewActivity);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
-
     public void alta(View v) {
-        if (et_codigo.getText().toString().length() == 0) {
+        if(et_codigo.getText().toString().length()==0){
             et_codigo.setError("Campo obligatorio");
+
             inputEt = false;
-        } else {
-            inputEt = true;
+        }else {
+            inputEt=true;
         }
-        if (et_descripcion.getText().toString().length() == 0) {
+        if(et_descripcion.getText().toString().length()==0){
             et_descripcion.setError("Campo obligatorio");
             inputEd = false;
-        } else {
-            inputEd = true;
+        }else {
+            inputEd=true;
         }
-        if (et_precio.getText().toString().length() == 0) {
+        if(et_precio.getText().toString().length()==0){
             et_precio.setError("Campo obligatorio");
             input1 = false;
-        } else {
-            input1 = true;
+        }else {
+            input1=true;
         }
-        if (inputEt && inputEd && input1) {
+        if (inputEt && inputEd && input1){
             try {
                 datos.setCodigo(Integer.parseInt(et_codigo.getText().toString()));
                 datos.setDescripcion(et_descripcion.getText().toString());
                 datos.setPrecio(Double.parseDouble(et_precio.getText().toString()));
-                //if(conexion.insertardatos(datos))(
-                //if(conexion.InsertRegister(datos)){
-                if (conexion.InserTradicional(datos)) {
 
+                if(conexion.InserTradicional(datos)){
                     Toast.makeText(this, "Registro agregado satisfactoriamente!",
                             Toast.LENGTH_SHORT).show();
                     limpiarDatos();
-                } else {
+                }else{
                     Toast.makeText(getApplicationContext(), "Error. Ya existe un registro\n" +
-                            " Cédigo: " + et_codigo.getText().toString(), Toast.LENGTH_LONG).show();
+                            " Código: "+et_codigo.getText().toString(),Toast.LENGTH_LONG).show();
                     limpiarDatos();
                 }
-
-            } catch (Exception e) {
+            }catch (Exception e){
                 Toast.makeText(this, "ERROR. Ya existe.", Toast.LENGTH_SHORT).show();
             }
         }
     }
-
-    public void mensaje(String mensaje) {
-        Toast.makeText(this, "" + mensaje, Toast.LENGTH_SHORT).show();
+    public void mensaje (String mensaje){
+        Toast.makeText(this, ""+mensaje, Toast.LENGTH_SHORT).show();
     }
-
-    public void limpiarDatos() {
+    public void limpiarDatos(){
         et_codigo.setText(null);
         et_descripcion.setText(null);
+
         et_precio.setText(null);
         et_codigo.requestFocus();
     }
-
     public void consultaporcodigo(View v) {
-        if (et_codigo.getText().toString().length() == 0) {
+        if(et_codigo.getText().toString().length()==0){
             et_codigo.setError("Campo obligatorio");
             inputEt = false;
-        } else {
-            inputEt = true;
+        }else {
+            inputEt=true;
         }
-        if (inputEt) {
+        if(inputEt){
             String codigo = et_codigo.getText().toString();
             datos.setCodigo(Integer.parseInt(codigo));
-            //if(conexion.consultaCodigo(datos)){
-            if (conexion.consultaArticulos(datos)) {
+//if(conexion.consultaCodigo(datos)){
+            if(conexion.consultaArticulos(datos)){
                 et_descripcion.setText(datos.getDescripcion());
-                et_precio.setText("" + datos.getPrecio());
-                //Toast. makeText(this, "Se encontro uno", Toast. LENGTH SHORT). show(),
-            } else {
-                Toast.makeText(this, "No existe un articulo con dicho cédigo",
+                et_precio.setText(""+datos.getPrecio());
+//Toast.makeText(this, "Se encontro uno", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "No existe un artículo con dicho código",
                         Toast.LENGTH_SHORT).show();
                 limpiarDatos();
             }
-        } else {
+        }else{
             Toast.makeText(this, "Ingrese el código del articulo a buscar.",
                     Toast.LENGTH_SHORT).show();
         }
     }
-
     public void consultapordescripcion(View v) {
-        if (et_descripcion.getText().toString().length() == 0) {
+        if(et_descripcion.getText().toString().length()==0){
             et_descripcion.setError("Campo obligatorio");
             inputEd = false;
-        } else {
-            inputEd = true;
+        }else {
+            inputEd=true;
         }
-        if (inputEd) {
+        if(inputEd){
             String descripcion = et_descripcion.getText().toString();
             datos.setDescripcion(descripcion);
-            if (conexion.consultarDescripcion(datos)) {
-                et_codigo.setText("" + datos.getCodigo());
+            if(conexion.consultarDescripcion(datos)){
+                et_codigo.setText(""+datos.getCodigo());
                 et_descripcion.setText(datos.getDescripcion());
-                et_precio.setText("" + datos.getPrecio());
-                //Toast. makeText(this, "Se encontro uno", Toast. LENGTH SHORT). show(),
-            } else {
-                Toast.makeText(this, "No existe un articulo con dicha descripcién",
+
+                et_precio.setText(""+datos.getPrecio());
+//Toast.makeText(this, "Se encontro uno", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "No existe un artículo con dicha descripción",
                         Toast.LENGTH_SHORT).show();
                 limpiarDatos();
             }
-
-        } else {
-            Toast.makeText(this, "Ingrese la descripcién del articulo a buscar.",
+        }else{
+            Toast.makeText(this, "Ingrese la descripción del articulo a buscar.",
                     Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
-
     public void bajaporcodigo(View v) {
         if(et_codigo.getText().toString().length()==0){
             et_codigo.setError("campo obligatorio");
             inputEt = false;
         }else {
-            inputEt = true;
+            inputEt=true;
         }
         if(inputEt){
             String cod = et_codigo.getText().toString();
             datos.setCodigo(Integer.parseInt(cod));
-            if(conexion.bajaCodigo(MainActivity.this, datos)){
-                //Toast. makeText(this, "Registro eliminado satisfactoriamente.", Toast. LENG TH SHORT). show(),
+            if(conexion.bajaCodigo(MainActivity.this,datos)){
+//Toast.makeText(this, "Registro eliminado satisfactoriamente.",Toast.LENGTH_SHORT).show();
                 limpiarDatos();
-            }else {
-                Toast.makeText(this, "No existe un articulo con dicho cédigo.",
+            }else{
+                Toast.makeText(this, "No existe un artículo con dicho código.",
                         Toast.LENGTH_SHORT).show();
                 limpiarDatos();
-            }}}
-
-
+            }
+        }
+    }
     public void modificacion(View v) {
-        if (et_codigo.getText().toString().length() == 0) {
+        if(et_codigo.getText().toString().length()==0){
             et_codigo.setError("campo obligatorio");
             inputEt = false;
-        } else {
-            inputEt = true;
+        }else {
 
+            inputEt=true;
         }
-        if (inputEt) {
-
+        if(inputEt) {
             String cod = et_codigo.getText().toString();
             String descripcion = et_descripcion.getText().toString();
             double precio = Double.parseDouble(et_precio.getText().toString());
-
             datos.setCodigo(Integer.parseInt(cod));
             datos.setDescripcion(descripcion);
             datos.setPrecio(precio);
-            if (conexion.modificar(datos)) {
+            if(conexion.modificar(datos)){
                 Toast.makeText(this, "Registro Modificado Correctamente.",
                         Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "No se han encontrado resultados para la busqueda especificada.",
-                        Toast.LENGTH_SHORT).show();
-
+            }else{
+                Toast.makeText(this, "No se han encontrado resultados para la busqueda especificada.", Toast.LENGTH_SHORT).show();
             }
         }
     }
