@@ -214,26 +214,26 @@ public class ConexionSQLite extends SQLiteOpenHelper {
     //Fin del método opcional
 
 
-    public boolean consultarDescripcion(Dto datos) {
+    public boolean consultarDescripcion(Dto datos){
         boolean estado = true;
         int resultado;
         SQLiteDatabase bd = this.getWritableDatabase();
         try {
             String descripcion = datos.getDescripcion();
-            Cursor fila = bd.rawQuery("select codigo, descripcion, precio from articulos" +
-                    "where descripcion='" + descripcion + "'", null);
+            Cursor fila = bd.rawQuery("select codigo, descripcion, precio from articulos where descripcion='" + descripcion + "'", null);
             if (fila.moveToFirst()) {
+
                 datos.setCodigo(Integer.parseInt(fila.getString(0)));
                 datos.setDescripcion(fila.getString(1));
                 datos.setPrecio(Double.parseDouble(fila.getString(2)));
                 estado = true;
-            } else {
+            }else {
                 estado = false;
             }
             bd.close();
-        } catch (Exception e) {
+        }catch (Exception e){
             estado = false;
-            Log.e("error.", e.toString());
+            Log.e("error.",e.toString());
         }
         return estado;
     }
