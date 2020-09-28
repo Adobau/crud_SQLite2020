@@ -180,6 +180,10 @@ public class MainActivity extends AppCompatActivity {
             Intent listViewActivity = new Intent(MainActivity.this, list_view_articulos.class);
             startActivity(listViewActivity);
             return true;
+        }else if(id == R.id.action_recyclerview){
+            Intent recyclerViewActivity = new Intent(MainActivity.this, consulta_recyclerView.class);
+            startActivity(recyclerViewActivity);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
