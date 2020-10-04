@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Busqueda por Codigo"
+        android:text="Búsqueda por Código"
         android:background="@drawable/estiloeditext"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="25dp"
@@ -32,7 +32,7 @@
         android:background="@drawable/estiloeditext"
         android:drawableStart="@drawable/ic_ingresar"
         android:drawablePadding="5dp"
-        android:hint="lngrese el cédigo"
+        android:hint="lngrese el código"
         android:inputType="number"
         android:paddingLeft="25dp" />
 
