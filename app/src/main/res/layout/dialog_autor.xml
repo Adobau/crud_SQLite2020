@@ -126,12 +126,11 @@
 
 
                         <androidx.cardview.widget.CardView
-                            xmlns:card_view="http://schemas.android.com/apk/res-auto"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            card_view:cardUseCompatPadding="true"
-                            card_view:cardElevation="5dp"
-                            card_view:cardCornerRadius="3dp"
+                            app:cardUseCompatPadding="true"
+                            app:cardElevation="5dp"
+                            app:cardCornerRadius="3dp"
                             android:layout_margin="0dp">
 
                             <LinearLayout
@@ -169,21 +168,19 @@
                                 </LinearLayout>
 
 
-
                                 <ImageView
                                     android:id="@+id/foto"
+                                    android:layout_width="235dp"
+                                    android:layout_height="277dp"
                                     android:layout_marginTop="5dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/compu1"
-                                    />
+                                    android:src="@drawable/ic_launcher2" />
 
                                 <TextView
                                     android:id="@+id/tv_doc_dr"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:textAppearance="@android:style/TextAppearance"
-                                    android:text="Autor: Manuel de Jesús Gámez López\nE-mail: manuel.gamez@itca.edu.sv\nTeléfono: (+503)6110-7065"
+                                    android:text="Autor: Adonis Alejandro Marín Bautista\nE-mail: adonis.marin19@itca.edu.sv\nTeléfono: (+503)7668-3149"
                                     android:layout_marginTop="5dp"
                                     android:textColor="#000"
                                     android:textSize="12dp"
@@ -207,7 +204,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:textAppearance="@android:style/TextAppearance"
-                                    android:text="Téc. en Mantenimiento de Computadoras.\nTéc. En Ing. Sistemas y Redes Informáticas.\nLic. en Ciencias de la Computación.\nIng. en Electrónica."
+                                    android:text="Bachiller Técnico Vocacional en  Desarrollo de Software.\nFuturo Téc. En Ingeniería en  Sistemas."
                                     android:layout_marginTop="5dp"
                                     android:textColor="#000"
                                     android:textSize="12dp"
